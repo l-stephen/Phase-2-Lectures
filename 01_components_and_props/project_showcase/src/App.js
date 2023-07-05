@@ -3,13 +3,13 @@ import ProjectForm from "./components/ProjectForm"
 import ProjectList from "./components/ProjectList"
 import projects from "./projects"
 function App() {
+  console.log(projects)
   return (
-     <div className="App">
-      <Header/>
-      <ProjectForm />
-      <ProjectList projects = {projects}/>
-    </div>
-     
+  <div className="App">
+    <Header />
+    <ProjectForm />
+    <ProjectList projects = {projects}/>
+   </div>
   );
 }
 

@@ -1,11 +1,13 @@
 import ProjectListItem from "./ProjectListItem"
 function ProjectList({projects}){
+    // console.log(projects)
     const projectListItems = projects.map((project) => (
-        <ProjectListItem key={project.id} {...project} />
-      ));
+        <ProjectListItem key={project.id} {...project}/>
+        // <ProjectListItem key={project.id} project = {project}/>
+        // <ProjectListItem key={project.id} name = {project.name} link={project.link}/>
+    ));
     return (
         <section>
-            <h2>Projects</h2>
             <div className="filter">
                 <button>All</button>
                 <button>Phase 5</button>
@@ -14,9 +16,10 @@ function ProjectList({projects}){
                 <button>Phase 2</button>
                 <button>Phase 1</button>
             </div>
-            <input type="text" placeholder="Search..."/>   
+            <input type="text" placeholder="Search..."></input>
             <ul className="cards">{projectListItems}</ul>
         </section>
     )
+
 }
 export default ProjectList
