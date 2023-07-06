@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
-const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+const Header = ({isDarkMode, onToggleDarkMode}) => {
 
   //Update state when button is clicked
   // const handleClick = () => {
@@ -9,7 +8,7 @@ const Header = () => {
   // }
   
   function handleClick(){
-    setIsDarkMode(!isDarkMode)
+    onToggleDarkMode()
   }
   return (
     <header>

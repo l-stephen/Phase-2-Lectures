@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import React, {useState} from "react"
 const ProjectListItem = ({ id, about, image, link, name, phase }) => {
   const [count, setCount] = useState(0)
 
