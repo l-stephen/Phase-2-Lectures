@@ -24,10 +24,6 @@ const App = () => {
     setSearchQuery(newsearch)
   }
 
-  const onAddProject = (newProject) => {
-    setProjects([...projects, newProject])
-  }
-
   // const handleSearch = (newvalue) => setSearchQuery(newvalue)
 
   const onAddProject = (newProject) => {
@@ -36,11 +32,7 @@ const App = () => {
   return (
     <div className="App">
       <Header isDarkMode = {isDarkMode} onToggleDarkMode = {onToggleDarkMode}/>
-<<<<<<< HEAD
-      <ProjectForm onAddProject={onAddProject}/>
-=======
       <ProjectForm onAddProject = {onAddProject}/>
->>>>>>> main
       <button onClick={handleClick}>Load Projects</button>
       <ProjectList searchQuery = {searchQuery} projects={projects} handleSearch={handleSearch} setProjects = {setProjects}/>
     </div>
