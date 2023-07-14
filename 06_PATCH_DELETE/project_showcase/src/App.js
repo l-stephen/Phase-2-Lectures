@@ -50,26 +50,24 @@ const App = () => {
   const enterProjectEditModeFor = (projectId) => {
     setProjectId(projectId);
   };
-
-  const onUpdateProject = (updatedProject) => {
-    const updatedProjects = projects.map((ogProject) => {
-      if (ogProject.id === updatedProject.id) {
-        return updatedProject;
-      } else {
-        return ogProject;
+  //Patch request
+  const onUpdateProject = (newProject) => {
+    const updatedProjects = projects.map((project) => {
+      if(project.id === newProject.id){
+        return newProject
       }
-    });
-
-    setProjects(updatedProjects);
-  };
-
+      else{
+        return project
+      }
+    })
+    setProjects(updatedProjects)
+  }
+  //Delete request
   const onDeleteProject = (projectId) => {
-    const updatedProjects = projects.filter(
-      (ogProject) => ogProject.id !== projectId
-    );
+    const updatedProjects = projects.filter((project) => project.id !== projectId)
+    setProjects(updatedProjects)
+  }
 
-    setProjects(updatedProjects);
-  };
 
 
   const renderForm = () => {
@@ -79,11 +77,11 @@ const App = () => {
         <ProjectEditForm
           projectId={projectId}
           completeEditing={completeEditing}
-          onUpdateProject={onUpdateProject}
+          onUpdateProject = {onUpdateProject}
         />
       );
     } else {
-      return <ProjectForm onAddProject={onAddProject} />;
+      return <ProjectForm onAddProject={onAddProject}/>;
     }
   };
   

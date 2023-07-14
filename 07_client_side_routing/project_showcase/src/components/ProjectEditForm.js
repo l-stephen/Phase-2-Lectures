@@ -1,38 +1,50 @@
 import React, { useState, useEffect } from "react";
+import {useParams, useHistory} from 'react-router-dom'
 
-const ProjectEditForm = ({ projectId, completeEditing, onUpdateProject }) => {
-  const initialState = {
+const ProjectEditForm = ({ onUpdateProject }) => {
+  const [formState, setFormState] = useState({
     name: "",
     about: "",
     phase: "",
     link: "",
     image: "",
-  };
+  });
 
-  const [formData, setFormData] = useState(initialState);
+  const { name, about, phase, link, image } = formState;
 
-  const { name, about, phase, link, image } = formData;
+  const { id } = useParams() // {id: 1}
+
+  const history = useHistory()
 
   useEffect(() => {
-    fetch(`http://localhost:4000/projects/${projectId}`)
+    fetch(`http://localhost:4000/projects/${id}`)
       .then((res) => res.json())
-      .then((project) => setFormData(project));
-  }, [projectId]);
+      .then((project) => setFormState(project));
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormState({ ...formState, [name]: value });
   };
 
-  function handleSubmit(e) {
-    fetch(`http://localhost:4000/projects/${projectId}`, {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const configObj = {
       method: "PATCH",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(formData),
-    })
-    .then((res) => res.json())
-    completeEditing();
-  }
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formState),
+    };
+
+    fetch(`http://localhost:4000/projects/${id}`, configObj)
+      .then((resp) => resp.json())
+      .then((updatedProj) => {
+        onUpdateProject(updatedProj);
+        history.push(`/projects/${id}`)
+      });
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form" autoComplete="off">
