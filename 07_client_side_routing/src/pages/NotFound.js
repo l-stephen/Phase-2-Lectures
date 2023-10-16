@@ -1,8 +1,13 @@
-
+import { useNavigate, Link } from "react-router-dom";
 function NotFound(){
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("/about");
+      };
     return(
         <div>
             <h2>Page Not Found!</h2>
+            <button onClick={handleClick}>Home</button>
         </div>
     )
 }
