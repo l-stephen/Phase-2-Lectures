@@ -1,3 +1,4 @@
+
 // reasct stateless component
 //react functional component
 // we want to build a function, return an html, and export it
@@ -23,6 +24,7 @@ function Header() {
     return (
         <div>
             <h1>This is the Header component</h1>
+
         </div>
     )
 }
