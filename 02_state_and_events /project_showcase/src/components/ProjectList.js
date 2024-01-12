@@ -1,12 +1,17 @@
 import ProjectListItem from "./ProjectListItem";
+<<<<<<< HEAD
 
 import React, {useState} from "react"
 
+=======
+import React, {useState} from "react"
+>>>>>>> 78e2b1c29ea179308715542c53fcccb9daf73b47
 function ProjectList({projects}){
     console.log(projects)
     const [search, setSearch] = useState("")
 
     const searchResults = projects.filter((project) => {
+<<<<<<< HEAD
         return project.name.toLowerCase().includes(search.toLowerCase())
     })
 
@@ -23,6 +28,23 @@ function ProjectList({projects}){
     function handleSearch(event){
         setSearch(event.target.value)
         console.log(search)
+=======
+      return project.name.toLowerCase().includes(search.toLowerCase())
+    })
+
+    // const searchResults = projects.filter((project) => (
+    //   project.name.toLowerCase().includes(search.toLowerCase())
+    // ))
+
+    const projectListItems = searchResults.map((project) => (
+        <ProjectListItem key={project.id} project={project}/> 
+        // <ProjectListItem key={project.id} name={project.name} about={project.about}/>  
+        // <ProjectListItem key={project.id} {...project}/>      
+    ));
+    function handleSearch(event){
+      setSearch(event.target.value)
+      console.log(search)
+>>>>>>> 78e2b1c29ea179308715542c53fcccb9daf73b47
     }
     return (
         <section>
