@@ -10,10 +10,9 @@ function App() {
   <div className="App">
     <Header />
     <ProjectForm />
-    <ProjectList projects = {projects}/> 
+    <ProjectList projects = {projects}/> {/* This is where we defined our prop and are passing it to ProjectList, then we accept that data on Proejct List comp */}
   </div>
-    )
-
+  )
 }
 
 export default App;

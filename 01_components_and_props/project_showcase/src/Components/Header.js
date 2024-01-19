@@ -3,21 +3,12 @@
 //react functional component
 // we want to build a function, return an html, and export it
 
-// rsc
-// import React from 'react';
-
-// const Header = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default Header;
+// React Shortcuts: rsc vs rfc
+// rsc: react stateless component
+// rfc: react functional component
 
 
-//rsf
+
 import React from 'react';
 
 function Header() {
