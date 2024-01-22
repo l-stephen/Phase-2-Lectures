@@ -1,7 +1,6 @@
-import {useLoaderData, useParams} from "react-router-dom"
+import {useLoaderData} from "react-router-dom"
 function Profile(){
 
-    // const {id} = useParams();
     const user = useLoaderData();
 
     return (
@@ -16,6 +15,7 @@ function Profile(){
 
 export const userProfile = async ({params}) => {
     const { id } = params
+    console.log(id)
     const response = await fetch(`http://localhost:4000/users/${id}`)
     return response.json()
 }

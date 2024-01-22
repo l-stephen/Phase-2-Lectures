@@ -12,7 +12,7 @@ function NavLayout(){
             <main>
                 <Outlet />
             </main>
-        </div>
+        </div> 
     )
 }
 export default NavLayout;
