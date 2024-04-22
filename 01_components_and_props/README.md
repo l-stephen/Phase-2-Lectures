@@ -216,6 +216,8 @@ function Card(props) {
   - Dynamically render each project name inside the `h4` tag
 
   - Dynamically render each project's about data inside the `p` tag
+- Create a `footer` element with a `span` inside that renders the phase
+
 ### Resources
 
 - [React](https://reactjs.org/)
