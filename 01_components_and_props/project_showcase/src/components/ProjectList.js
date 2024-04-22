@@ -1,6 +1,11 @@
+import ProjectListItem from "./ProjectListItem"
+function ProjectList({projects}){
+    console.log(projects)
+    // const projectListItems = projects.map((project) => {
+    //     console.log(project)
+    //     return <ProjectListItem key={project.id} project = {project} />
+    // })
 
-function ProjectList(){
-    
     return (
         <section>
             <div className="filter">
@@ -12,7 +17,12 @@ function ProjectList(){
                 <button>Phase 1</button>
             </div>
             <input type="text" placeholder="Search..."></input>
-            <ul className="cards"></ul>
+            <ul className="cards">{projects.map((project) => {
+                return <ProjectListItem key = {project.id} name={project.name} about={project.about} phase={project.phase} link={project.link} image={project.image}/>
+            })}</ul>
+            {/* <ul className="cards">{projects.map((project) => (
+                <ProjectListItem key = {project.id} project={project}/>
+            ))}</ul> */}
         </section>
     )
 

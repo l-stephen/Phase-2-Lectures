@@ -1,26 +1,31 @@
 
-function ProjectListItem(){
+function ProjectListItem({name, about, image, link, phase}){
+    console.log(name)
+    console.log(image)
+    console.log(about)
+    console.log(link)
+    console.log(phase)
     return (
     <li className="card">
         <figure className="image">
-            <img></img>
+            <img src={image}></img>
             <button className="claps">👏{0}</button>
         </figure>
 
         <article className="details">
-            <h4></h4>
-            <p></p>
+            <h4>{name}</h4>
+            <p>{about}</p>
             {
-                true ? 
+                link ? 
                     <p>
-                        <a>Link</a>
+                        <a href={link}>Link</a>
                     </p>
                  : null
             }
         </article>
 
         <footer className="extra">
-            <span className="badge blue">Phase </span>
+            <span className="badge blue">Phase {phase} </span>
 
         </footer>
 
