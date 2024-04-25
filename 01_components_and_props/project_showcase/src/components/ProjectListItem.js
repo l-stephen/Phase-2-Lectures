@@ -1,36 +1,33 @@
+import React, {useState} from "react"
+const ProjectListItem = ({ id, about, image, link, name, phase }) => {
+  const [count, setCount] = useState(0)
 
-function ProjectListItem({name, about, image, link, phase}){
-    console.log(name)
-    console.log(image)
-    console.log(about)
-    console.log(link)
-    console.log(phase)
-    return (
+  function handleClick(){
+    // setCount((claps) => claps + 1)
+    setCount(count + 1)
+  }
+  return (
     <li className="card">
-        <figure className="image">
-            <img src={image}></img>
-            <button className="claps">👏{0}</button>
-        </figure>
+      <figure className="image">
+        <img src={image} alt={name} />
+        <button className="claps" onClick={handleClick}>👏{count}</button>
+      </figure>
 
-        <article className="details">
-            <h4>{name}</h4>
-            <p>{about}</p>
-            {
-                link ? 
-                    <p>
-                        <a href={link}>Link</a>
-                    </p>
-                 : null
-            }
-        </article>
+      <section className="details">
+        <h4>{name}</h4>
+        <p>{about}</p>
+        {link ? (
+          <p>
+            <a href={link}>Link</a>
+          </p>
+        ) : null}
+      </section>
 
-        <footer className="extra">
-            <span className="badge blue">Phase {phase} </span>
-
-        </footer>
-
+      <footer className="extra">
+        <span className="badge blue">Phase {phase}</span>
+      </footer>
     </li>
-    )
+  );
+};
 
-}
-export default ProjectListItem
+export default ProjectListItem;
